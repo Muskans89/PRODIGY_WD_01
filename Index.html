@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive Navigation Menu</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #36c7cdfe;
+    padding: 10px 0;
+    z-index: 1000;
+    transition: background-color 0.5s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    margin: 0 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .navbar a:hover {
+    background-color: #f708cb;
+  }
+
+  .navbar.scrolled {
+    background-color: #222;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  }
+</style>
+</head>
+<body>
+
+<div class="navbar" id="navbar">
+  <a href="#" class="active">Home</a>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Contact</a>
+</div>
+
+<script>
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+    const navbar = document.getElementById("navbar");
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      navbar.classList.add("scrolled");
+    } else {
+      navbar.classList.remove("scrolled");
+    }
+  }
+</script>
+
+<div style="height:1000px; background-color:#f0f0f0; padding:20px;">
+  <h2>Scroll down to see the effect!</h2>
+</div>
+
+</body>
+</html>
